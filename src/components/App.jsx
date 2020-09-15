@@ -56,19 +56,19 @@ function App() {
                     </Grid>
                 </Grid>
                 <Grid container direction='row' className='info-cont'>
-                    <Grid item md={3} xs={12}>
+                    <Grid item md={3} xs={12} className='info-col'>
                         <h5>IP ADDRESS</h5>
                         <h3>{ipData.ipAddress}</h3>
                     </Grid>
-                    <Grid item md={3} xs={12}>
+                    <Grid item md={3} xs={12} className='info-col'>
                         <h5>LOCATION</h5>
                         <h3>{ipData.city + ", " + ipData.zip}</h3>
                     </Grid>
-                    <Grid item md={3} xs={12}>
+                    <Grid item md={3} xs={12} className='info-col'>
                         <h5>TIMEZONE</h5>
                         <h3>{ipData.timeZone}</h3>
                     </Grid>
-                    <Grid item md={3} xs={12}>
+                    <Grid item md={3} xs={12} className='info-col'>
                         <h5>ISP</h5>
                         <h3>{ipData.isp}</h3>
                     </Grid>
@@ -78,7 +78,7 @@ function App() {
                 <div id="mapid"></div>
             </Grid>
 
-            <Map lat={ipData.lat} lon={ipData.lon}/>
+            <Map lat={ipData.lat} lon={ipData.lon} city={ipData.city}  zipCode={ipData.zip} ip={ipData.ipAddress}/>
         </div>
     )
 }

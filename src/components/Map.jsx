@@ -7,6 +7,7 @@ var mymap;
 function Map(props) {
 
     return (
+        <div className='map'>
         <LeafletMap
         center={[props.lat, props.lon]}
         zoom={6}
@@ -18,16 +19,19 @@ function Map(props) {
         dragging={true}
         animate={true}
         easeLinearity={0.35}
+        
       >
         <TileLayer
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        <Marker position={[props.lat, props.lon]}>
+          />
+        <Marker position={[props.lat, props.lon]} >
           <Popup>
-            Popup for any custom information.
+    <h2>{props.city +', ' + props.zipCode}</h2>
+    <h4>{props.ip}</h4>
           </Popup>
         </Marker>
       </LeafletMap>
+      </div>
 
     );
 

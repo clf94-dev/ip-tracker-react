@@ -72,27 +72,42 @@
 
 .top-section .info-cont {
   position: relative;
-  z-index: 2;
+  z-index: 100 !important;
   margin: 1% 10%;
+  padding-top: 20px;
   width: 80%;
-  height: 200px;
+  height: 180px;
   border-radius: 10px;
-  background-color: white;
+  background-color: white !important;
 }
 
-.top-section .info-cont h5 {
-  margin-top: 40px;
+@media screen and (max-width: 756px) {
+  .top-section .info-cont {
+    height: 700px;
+  }
+}
+
+.top-section .info-cont .info-col h5 {
+  margin-top: 20px;
   font-size: 15px;
   color: gray;
 }
 
-.top-section .info-cont h3 {
-  margin-top: 30px;
+.top-section .info-cont .info-col h3 {
+  margin-top: 15px;
   font-size: 25px;
   color: black;
   padding: 1% 5%;
 }
 
-#map {
-  width: 100%;
+.map {
+  z-index: 0;
+  position: relative;
+  top: -110px;
+}
+
+@media screen and (max-width: 756px) {
+  .map {
+    top: -670px;
+  }
 }

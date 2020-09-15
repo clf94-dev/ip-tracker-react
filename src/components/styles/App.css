@@ -52,6 +52,7 @@
 .top-section .top-section-cont .search-cont input {
   width: 100%;
   height: 50px;
+  border-color: white;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   padding-left: 15px;
@@ -70,6 +71,8 @@
 }
 
 .top-section .info-cont {
+  position: relative;
+  z-index: 2;
   margin: 1% 10%;
   width: 80%;
   height: 200px;
@@ -87,4 +90,9 @@
   margin-top: 30px;
   font-size: 25px;
   color: black;
+  padding: 1% 5%;
+}
+
+#map {
+  width: 100%;
 }

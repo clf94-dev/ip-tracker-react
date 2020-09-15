@@ -3,6 +3,7 @@ import {Grid} from '@material-ui/core/';
 import TopImg from './images/pattern-bg.png'
 import Arrow from './images/icon-arrow.svg'
 import axios from 'axios';
+import Map from './Map'
 
 import './styles/App.css'
 
@@ -19,18 +20,25 @@ function App() {
         var urlAPI = 'http://ip-api.com/json/' + IP;
         console.log(urlAPI);
 
-       
-            axios
-                .get(urlAPI)
-                .then(res => {
-                    var data_country = res.data.country;
-                    setIPData({timeZone: res.data.timezone,ipAddress: res.data.query,lat: res.data.lat, lon: res.data.lon, isp: res.data.isp, city: res.data.city, zip: res.data.zip});
-                    console.log(res.data);
-                    console.log(ipData)
+        axios
+            .get(urlAPI)
+            .then(res => {
+                var data_country = res.data.country;
+                setIPData({
+                    timeZone: res.data.timezone,
+                    ipAddress: res.data.query,
+                    lat: res.data.lat,
+                    lon: res.data.lon,
+                    isp: res.data.isp,
+                    city: res.data.city,
+                    zip: res.data.zip
+                });
+                console.log(res.data);
+                console.log(ipData)
 
-                })
-                .catch(error => console.log(error))
-        }
+            })
+            .catch(error => console.log(error))
+    }
     return (
         <div>
             <Grid container direction='column' className='top-section'>
@@ -50,7 +58,7 @@ function App() {
                 <Grid container direction='row' className='info-cont'>
                     <Grid item md={3} xs={12}>
                         <h5>IP ADDRESS</h5>
-    <h3>{ipData.ipAddress}</h3>
+                        <h3>{ipData.ipAddress}</h3>
                     </Grid>
                     <Grid item md={3} xs={12}>
                         <h5>LOCATION</h5>
@@ -58,17 +66,19 @@ function App() {
                     </Grid>
                     <Grid item md={3} xs={12}>
                         <h5>TIMEZONE</h5>
-    <h3>{ipData.timeZone}</h3>
+                        <h3>{ipData.timeZone}</h3>
                     </Grid>
                     <Grid item md={3} xs={12}>
                         <h5>ISP</h5>
-    <h3>{ipData.isp}</h3>
+                        <h3>{ipData.isp}</h3>
                     </Grid>
                 </Grid>
             </Grid>
             <Grid container className='map-cont'>
                 <div id="mapid"></div>
             </Grid>
+
+            <Map lat={ipData.lat} lon={ipData.lon}/>
         </div>
     )
 }
